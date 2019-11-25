@@ -1,0 +1,7 @@
+FROM mysql
+
+ENV MYSQL_DATABASE tap
+ENV MYSQL_ROOT_PASSWORD "app.123"
+
+CMD mysql start
+CMD mysql -u root -p${MYSQL_ROOT_PASSWORD} -e "CREATE DATABASE tap"
