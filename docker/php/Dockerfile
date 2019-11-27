@@ -140,4 +140,6 @@ RUN echo '#!/bin/bash' > /healthcheck && \
 # Clean up
 RUN apt-get remove -y git && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN cd /var/www/html && composer install
+
 CMD php /var/www/html/artisan migrate:fresh --seed; php-fpm
